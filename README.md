@@ -1,1 +1,1 @@
-This is a password generator that pulls from four seperate arrays. it uses a call back function within the function of 
+This is a password generator that pulls from four seperate arrays. it uses a call back function within the function of the generate password within the write password function. It uses a random iterator to call through each array. 
