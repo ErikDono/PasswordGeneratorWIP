@@ -10,8 +10,8 @@ var
 
 var randomItem = {
   numbers =["0,1,2,3,4,5,6,7,8,9"];
-  uppercaseLetters =["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
-  lowercaseLetters =["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
+  upLetters =["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
+  lowLetters =["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
   symbols =[" !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]
 }
 
@@ -34,26 +34,33 @@ function writePassword() {
 
   var upperChoice = confirm("Would you like to use Upper Case Letters?")
 
-  //if this is true, i want to merge! upper case in my password
+  //if this is confirmed, i want to merge! upper case in my password
 
   var lowerChoice = confirm("would you like to use ")
-  // if this is true, i want to merge! lower case in my new password
+  // if this is confirmed, i want to merge! lower case in my new password
 
   var numChoice = confirm("Would you like to use numbers?")
 
-  //if this is true, i want to merge! numbers to be used in my new password
+  //if this is confirmed, i want to merge! numbers to be used in my new password
 
   var specChoice = confirm("Would you like to use special characters?")
 
-  // if this is true, i want to merge! special characters to be used for my new password
+  // if this is confirmed, i want to merge! special characters to be used for my new password
+
   // im going to need the following merge statments for each possible answer: 
   // all yes, 3 yes, 2 yes, 1 yes. 
   // if no yes, then what?
 
 }
 
-// var userChoice = {
-//   if(specChoice === true) { }
+var userChoice
+// if all true, set user choice to  numbers,symnbols, upLetters, lowLetters  
+// if none true alert(you have to choose at least one!)
+if (specChoice && numChoice && lowerChoice) {
+  userChoice = concat(symbols, numbers, lowLetters)
+}
+if (specChoice && numChoice && lowerChoice)
+// if(specChoice === true) { }
 // if (numChoice === true) { }
 // if (lowerChoice === true)
 //   if (upperChoice === true)
