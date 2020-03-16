@@ -6,37 +6,34 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var
 
 var randomItem = {
-  numbers =["0,1,2,3,4,5,6,7,8,9"];
-  upLetters =["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
-  lowLetters =["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
-  symbols =[" !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]
+  numbers: "0123456789",
+  upLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowLetters: "abcdefghijklmnopqrstuvwxyz",
+  symbols: "!#$%&'()*+,-./:;<=>?@[^_`{|}~"
 }
 
-var newPass = ("")
-
+var userChara = ""
+var passLength = 0
 
 // Write password to the #password input
 function writePassword() {
 
-  alert("Lets make a password!")
-  var passLength = prompt("How many characters ? (8-128)")
+  passLength = parseInt(prompt("How many characters ? (8-128)"))
   //im thinking passlength= passlenght.value, but i need to turn it from a string to an object... i think? so that i can use it to feed the info to my new password. 
-  if (passLength < 8 || ppassLength > 128) {
+  if (passLength < 8 || passLength > 128) {
     alert("Between 8 and 128 please")
-    // return? or another prompt?
+    return
   }
-  else (newpass.lenght = parseint(passLength))
   //passLength s going to feed the newpass through affecting the iterator when i am pulling throught the values and adding randomness to the chocies! 
 
 
-  var upperChoice = confirm("Would you like to use Upper Case Letters?")
+  var upperChoice = confirm("Would you like to use upper case Letters?")
 
   //if this is confirmed, i want to merge! upper case in my password
 
-  var lowerChoice = confirm("would you like to use ")
+  var lowerChoice = confirm("would you like to use lower case letters?")
   // if this is confirmed, i want to merge! lower case in my new password
 
   var numChoice = confirm("Would you like to use numbers?")
@@ -46,41 +43,70 @@ function writePassword() {
   var specChoice = confirm("Would you like to use special characters?")
 
   // if this is confirmed, i want to merge! special characters to be used for my new password
-
+  if (upperChoice === false && lowerChoice === false && numChoice === false && specChoice === false) {
+    alert("Please select at least one, try again.")
+    return
+  }
   // im going to need the following merge statments for each possible answer: 
   // all yes, 3 yes, 2 yes, 1 yes. 
   // if no yes, then what?
 
-}
+  if (lowerChoice === true && upperChoice === true && specChoice === true && numChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.upLetters, randomItem.symbols, randomItem.numbers
+  }
+  if (lowerChoice === true && upperChoice === true && specChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.upLetters, randomItem.symbols
+  }
+  if (lowerChoice === true && upperChoice === true && numChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.upLetters, randomItem.numbers
+  }
+  if (lowerChoice === true && specChoice === true && numChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.symbols, randomItem.numbers
+  }
+  if (upperChoice === true && specChoice === true && numChoice === true) {
+    userChara += randomItem.upLetters, randomItem.symbols, randomItem.numbers
+  }
+  if (lowerChoice === true && upperChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.upLetters
+  }
+  if (lowerChoice === true && specChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.symbols
+  }
+  if (lowerChoice === true && numChoice === true) {
+    userChara += randomItem.lowLetters, randomItem.numbers
+  }
+  if (upperChoice === true && specChoice === true) {
+    userChara += randomItem.upLetters, randomItem.symbols
+  }
+  if (upperChoice === true && numChoice === true) {
+    userChara += randomItem.upLetters, randomItem.numbers
+  }
+  if (numChoice === true && specChoice === true) {
+    userChara += randomItem.numbers, randomItem.symbols
+  }
 
-var userChoice
-// if all true, set user choice to  numbers,symnbols, upLetters, lowLetters  
-// if none true alert(you have to choose at least one!)
-if (specChoice && numChoice && lowerChoice) {
-  userChoice = concat(symbols, numbers, lowLetters)
-}
-if (specChoice && numChoice && lowerChoice)
-// if(specChoice === true) { }
-// if (numChoice === true) { }
-// if (lowerChoice === true)
-//   if (upperChoice === true)
+  // this ^^^ logic does not seem to be working, but i cannot spend more time on this, sadly. 
+
+  var password = generatePassword()
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
 
 }
 
 function generatePassword() {
+  var newPass = ""
   // this relates to generate passoword below, so the output of this function will be var password. Maybe this is where my random-ator goes? 
-  // for (let i = 0; index < passLength.length; index++) {
-  // const newPass = ^all choices put together^[math.floor(math.random()*^length of userChoice array^];
-
+  for (let i = 0; i < passLength; i++) {
+    newPass += userChara[Math.floor(Math.random() * passLength)]
+  }
+  return newPass
 }
-}
 
-var password = generatePassword()
-var passwordText = document.querySelector("#password");
-passwordText.value = password;
 
-}
+
+
+
 
 
 
