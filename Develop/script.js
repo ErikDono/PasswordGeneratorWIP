@@ -24,34 +24,49 @@ function writePassword() {
   alert("Lets make a password!")
   var passLength = prompt("How many characters ? (8-128)")
   //im thinking passlength= passlenght.value, but i need to turn it from a string to an object... i think? so that i can use it to feed the info to my new password. 
-  if (passLength < 8 || passLength > 128) {
+  if (passLength < 8 || ppassLength > 128) {
     alert("Between 8 and 128 please")
+    // return? or another prompt?
   }
-  else ( )
+  else (newpass.lenght = parseint(passLength))
   //passLength s going to feed the newpass through affecting the iterator when i am pulling throught the values and adding randomness to the chocies! 
 
 
   var upperChoice = confirm("Would you like to use Upper Case Letters?")
-  if (upperChoice === true) { }
+
   //if this is true, i want to merge! upper case in my password
 
   var lowerChoice = confirm("would you like to use ")
-  if (lowerChoice === true) { }
   // if this is true, i want to merge! lower case in my new password
 
   var numChoice = confirm("Would you like to use numbers?")
-  if (numChoice === true) { }
+
   //if this is true, i want to merge! numbers to be used in my new password
 
   var specChoice = confirm("Would you like to use special characters?")
-  if (specChoice === true) { }
+
   // if this is true, i want to merge! special characters to be used for my new password
+  // im going to need the following merge statments for each possible answer: 
+  // all yes, 3 yes, 2 yes, 1 yes. 
+  // if no yes, then what?
+
+}
+
+// var userChoice = {
+//   if(specChoice === true) { }
+// if (numChoice === true) { }
+// if (lowerChoice === true)
+//   if (upperChoice === true)
+
 
 }
 
 function generatePassword() {
-  // this relates to generate passoword below, so the output of this function will be var password. 
+  // this relates to generate passoword below, so the output of this function will be var password. Maybe this is where my random-ator goes? 
+  // for (let i = 0; index < passLength.length; index++) {
+  // const newPass = ^all choices put together^[math.floor(math.random()*^length of userChoice array^];
 
+}
 }
 
 var password = generatePassword()
