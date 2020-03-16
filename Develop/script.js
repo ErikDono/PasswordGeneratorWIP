@@ -15,25 +15,35 @@ var randomItem = {
   symbols =[" !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]
 }
 
+var newPass = ("")
+
 
 // Write password to the #password input
 function writePassword() {
 
   alert("Lets make a password!")
   var passLength = prompt("How many characters ? (8-128)")
+  //im thinking passlength= passlenght.value, but i need to turn it from a string to an object... i think? so that i can use it to feed the info to my new password. 
+  // if input is < 8, then there should be an alert. 
+  // if the input is > 128, there should be an alert
+  //Else!! the input needs to feed to the newpass
 
 
   var upperChoice = confirm("Would you like to use Upper Case Letters?")
-  if (upperChoice === true)
+  if (upperChoice === true) { }
+  //if this is true, i want upper case in my password
 
-    var lowerChoice = confirm("would you like to use ")
-  if (lowerChoice === true)
+  var lowerChoice = confirm("would you like to use ")
+  if (lowerChoice === true) { }
+  // if this is true, i want lower case in my new password
 
-    var numChoice = confirm("Would you like to use numbers?")
-  if (numChoice === true)
+  var numChoice = confirm("Would you like to use numbers?")
+  if (numChoice === true) { }
+  //if this is true, i want numbers to be used in my new password
 
-    var specChoice = confirm("Would you like to use special characters?")
-  if (specChoice === true)
+  var specChoice = confirm("Would you like to use special characters?")
+  if (specChoice === true) { }
+  // if this is true, i want special characters to be used for my new password
 
 }
 
